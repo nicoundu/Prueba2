@@ -57,8 +57,8 @@ public class VisitsAdapter extends RecyclerView.Adapter<VisitsAdapter.ViewHolder
                             Visit auxVisit = visits.get(auxPosition);
                             auxVisit.setVisited(true);
                             auxVisit.save();
-                       //     visits.remove(auxPosition);
-                       //     notifyItemMoved(auxPosition);
+                            visits.remove(auxPosition);
+                            notifyItemRemoved(auxPosition);
                         }
                     }, 400);
                 }
