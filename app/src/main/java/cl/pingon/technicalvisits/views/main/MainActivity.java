@@ -13,6 +13,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import cl.pingon.technicalvisits.R;
 import cl.pingon.technicalvisits.models.Visit;
@@ -47,48 +48,30 @@ public class MainActivity extends AppCompatActivity {
                         EditText clientEt = dialog.findViewById(R.id.clientEt);
                         String client = clientEt.getText().toString();
 
-                        if (client.trim().length() > 0) {
-                            Visit visit = new Visit();
-                            visit.setClient(client);
-                            visit.setVisited(false);
-                            visit.save();
-
-                        }
-
                         EditText projectEt = dialog.findViewById(R.id.projectEt);
 
                         String project = projectEt.getText().toString();
 
-                        if (project.trim().length() > 0) {
-                            Visit visit = new Visit();
-                            visit.setProject(project);
-                            visit.setVisited(false);
-                            visit.save();
-
-                        }
                         EditText directionEt = dialog.findViewById(R.id.directionEt);
 
                         String direction = directionEt.getText().toString();
 
-                        if (direction.trim().length() > 0) {
+                        if (client.trim().length() > 0 && project.trim().length() > 0 && direction.trim().length() > 0) {
                             Visit visit = new Visit();
+                            visit.setClient(client);
+                            visit.setProject(project);
                             visit.setDirection(direction);
                             visit.setVisited(false);
                             visit.save();
-
                             visitsFragment.updateList(visit);
-
+                        } else {
+                            Toast.makeText(MainActivity.this, "Debe completar los 3 campos", Toast.LENGTH_SHORT).show();
                         }
 
                         dialog.dismiss();
 
-
-
-
                     }
                 });
-
-
 
 
                 dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);

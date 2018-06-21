@@ -97,9 +97,6 @@ public class VisitsAdapter extends RecyclerView.Adapter<VisitsAdapter.ViewHolder
         });
 
 
-
-
-
     }
 
 

@@ -1,26 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".views.details.DetailsActivity">
 
     <EditText
+        android:gravity="start"
         android:id="@+id/heightEt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ingrese una altura"
+        android:hint="Ingrese la altura de montaje"
         android:lines="1"
-        android:maxLines="1" />
+        android:maxLines="1"
+        android:padding="16dp" />
 
     <EditText
-        android:id="@+id/lenghtEt"
+        android:gravity="start"
+        android:id="@+id/lengthEt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ingrese el largo"
+        android:hint="Ingrese el largo de la grúa"
         android:lines="1"
-        android:maxLines="1" />
+        android:maxLines="1"
+        android:padding="16dp" />
+
+    <EditText
+        android:gravity="start"
+        android:id="@+id/observationEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese sus observaciones"
+        android:lines="4"
+        android:maxLines="4"
+        android:padding="16dp" />
 
 </LinearLayout>

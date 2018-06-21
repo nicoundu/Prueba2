@@ -11,10 +11,12 @@ import cl.pingon.technicalvisits.views.main.VisitsFragment;
 
 public class DetailsActivity extends AppCompatActivity {
 
-    private long visit_id;;
+    private long visit_id;
+    ;
     private Visit visit;
     EditText heightEt;
     EditText lenghtEt;
+    EditText observationEt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,19 +29,43 @@ public class DetailsActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle(visit.getClient());
 
+        heightEt = findViewById(R.id.heightEt);
+        lenghtEt = findViewById(R.id.lengthEt);
+        observationEt = findViewById(R.id.observationEt);
+
 
     }
 
     @Override
-    protected void onPostResume() {
-        super.onPostResume();
+    protected void onResume() {
+        super.onResume();
 
-        String client = visit.getClient();
+        String height = visit.getHeight();
+        String lenght = visit.getLength();
+        String observation = visit.getObservation();
+
+        if (height != null && lenght != null && observation != null) {
+            heightEt.setText(height);
+            lenghtEt.setText(lenght);
+            observationEt.setText(observation);
+        }
 
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+
+        String height;
+        String lenght;
+        String observation;
+        height = heightEt.getText().toString();
+        lenght = lenghtEt.getText().toString();
+        observation = observationEt.getText().toString();
+        visit.setHeight(height);
+        visit.setLength(lenght);
+        visit.setObservation(observation);
+        visit.save();
+
     }
 }

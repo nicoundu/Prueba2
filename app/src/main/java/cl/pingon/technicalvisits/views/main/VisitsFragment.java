@@ -17,7 +17,7 @@ import cl.pingon.technicalvisits.adapters.VisitsAdapter;
 import cl.pingon.technicalvisits.models.Visit;
 import cl.pingon.technicalvisits.views.details.DetailsActivity;
 
-public class VisitsFragment extends Fragment implements VisitClickListener{
+public class VisitsFragment extends Fragment implements VisitClickListener {
 
     private VisitsAdapter adapter;
 
